@@ -1,8 +1,9 @@
 const { Message, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "test",
-  description: "Comanda de test",
+  name: "polinfo1",
+  descrpition: "InfoPolitie",
+  category: "informatie",
 
   /**
    *
