@@ -1,4 +1,4 @@
-const { Client, Webhook, WebhookClient, MessageEmbed } = require("discord.js");
+const { Client, WebhookClient, MessageEmbed } = require("discord.js");
 const { prefix, logger, color } = require("../config.json");
 
 /**
