@@ -2,7 +2,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 const { roles } = require("../../config.json");
 
 module.exports = {
-  name: "polinfoprincipal1",
+  name: "polinfoprincipal",
   descrpition: "InfoPolitie",
   category: "staff",
 
@@ -16,33 +16,23 @@ module.exports = {
       if (message.member.roles.cache.some(r => roles.includes(r.id)) ) {
         let embed = new MessageEmbed()
         .setTitle("Categorii Disponibile")
-        .addField("_", "_", true)
-        .addField("📆┋activitatea", "```!polinfo1```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("📆┋cerere-concediu", "```!polinfo2```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("🏢┋dovada-la-suspendarea-permisului", "```!polinfo3```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("📂┋evidenta-amenzi", "```!polinfo4```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("🏢┋evidenta-dosare-penale ", "```!polinfo5```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("🏢┋stergere-dosare-penale", "```!polinfo6```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("🏢┋detinuti", "```!polinfo7```", true)
-        .addField("_", "_", true)
-        .addField("_", "_", true)
-        .addField("🧾┋mandat-de-perchezitie", "```!polinfo8```", true)
-        .addField("_", "_", true)
-        .setImage(encodeURI(`https://cdn.discordapp.com/attachments/955882211117269052/956278627488653402/Unbenannt-222.png`))
+        .addField("📆┋activitatea", "```!polinfo1```", false)
+        .addField("📆┋cerere-concediu", "```!polinfo2```", false)
+        .addField("🏢┋dovada-la-suspendarea-permisului", "```!polinfo3```", false)
+        .addField("📂┋evidenta-amenzi", "```!polinfo4```", false)
+        .addField("🏢┋evidenta-dosare-penale ", "```!polinfo5```", false)
+        .addField("🏢┋stergere-dosare-penale", "```!polinfo6```", false)
+        .addField("🏢┋detinuti", "```!polinfo7```", false)
+        .addField("🧾┋mandat-de-perchezitie", "```!polinfo8```", false)
+        .addField("✍┋cerere-sias", "```!polinfo9```", false)
+        .addField("✍┋cerere-moto", "```!polinfo10```", false)
+        .addField("📂┋evidenta-descarcare-portarma", "```!polinfo11```", false)
+        .addField("📘┋demisia", "```!polinfo12```", false)
+        .addField("🏢┋predare-sns-pistol", "```!polinfo13```", false)
+        .setImage(encodeURI(`https://cdn.discordapp.com/attachments/955031401210732597/955911898812002396/Unbenannt-1.png`))
         .setColor("BLUE")
       await message.channel.send({ embeds: [embed] });
+      message.delete(1000);
       }else {
         message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
       }
