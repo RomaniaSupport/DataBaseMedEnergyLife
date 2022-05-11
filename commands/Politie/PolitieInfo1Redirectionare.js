@@ -1,4 +1,4 @@
-const { Message, Client, MessageEmbed } = require("discord.js");
+const { Message, Client, MessageEmbed, ClientUser } = require("discord.js");
 
 module.exports = {
     name: "sapolinfo1",
@@ -19,9 +19,11 @@ module.exports = {
             if(!channel) return message.reply("Aceasta camera a fost stearsa te rugam contacteaza un admin!");
             let embed = new MessageEmbed()
             .setTitle(message.author.tag)
+            .addField("De La Angajatul :", `<@${message.author.id}> `)
             .setThumbnail(message.author.avatarURL())
             .setColor("#0000ff")
             .setDescription(args.join(" "))
+            .setTimestamp()
     
             await channel.send({ embeds: [embed] }).then(m => {
                 m.react("✅")
