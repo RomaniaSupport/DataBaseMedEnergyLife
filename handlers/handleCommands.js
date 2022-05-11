@@ -1,6 +1,6 @@
 const { Client } = require("discord.js");
 
-const { readdirSync, read } = require("fs");
+const { readdirSync } = require("fs");
 
 /**
  *
