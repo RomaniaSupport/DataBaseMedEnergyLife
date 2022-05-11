@@ -13,7 +13,7 @@ module.exports = {
             let al = new WebhookClient({ url: alt });
             let channel1 = client.channels.cache.get('973903474372771880')
             let channel2 = client.channels.cache.get('973903376448360448')
-
+            
             let arguments = args.slice(0).join(' ');
             if(!arguments) return message.reply("Ai uitat sa completezi boss");
                 
