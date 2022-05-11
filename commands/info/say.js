@@ -1,5 +1,4 @@
 const { Message, Client } = require("discord.js");
-const { roles } = require("../../config.json");
 
 module.exports = {
     name: "say",
@@ -15,7 +14,7 @@ module.exports = {
         try {
             let arguments = args.slice(0).join(' ');
             if(!arguments) return message.reply("Ai uitat sa completezi boss");
-            if(message.member.roles.cache.some(r => roles.includes(r.id)) ) {
+            if(message.member.roles.cache.some(r => r.id === "973815019227725864") ) {
                 await message.channel.send(arguments);
                 message.delete(1000);
             }else {
