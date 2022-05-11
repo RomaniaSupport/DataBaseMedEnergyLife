@@ -26,7 +26,7 @@ module.exports = async (client) => {
       if (isURL(logger)) {
         try {
           const loggerhook = new WebhookClient({ url: logger });
-          const error_embed = new MessageEmbed().setColor(color).setTitle("Error!").setDescription(`\`\`\`js${err.stack}\n\`\`\``);
+          const error_embed = new MessageEmbed().setColor(color).setTitle("Eroare sa moara familia mea!").setDescription(`\`\`\`js${err.stack}\n\`\`\``);
           await loggerhook.send({ embeds: [error_embed] });
         } catch {}
       }
