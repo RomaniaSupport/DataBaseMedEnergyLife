@@ -1,6 +1,7 @@
 {
     "prefix": "!",
     "logger": "https://canary.discord.com/api/webhooks/973672766291210301/KUF8yDyVf4EFZjBE3vL7t0kMwiDbVg3h3kF4OdfB9Ap6VUZaD2WYRZbk6I179w__ewR7",
+    "logs": "https://discord.com/api/webhooks/973877499492728872/LpunUYp7h0WEpvNBOX2ylLIVQsp7aFt3UaHxzq5WeJBwRQAA81NayQ24e1QKLug48lmH",
     "color": "ff0000",
     "roles": "973815019227725864",
     "owner": "401063006034984960"
