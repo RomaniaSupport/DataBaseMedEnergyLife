@@ -10,15 +10,13 @@ module.exports = {
    * @param {Message} message
    * @param {String[]} args
    */
-  run: async (client, message, args) => {
+  run: async (client, message) => {
     try {
-      const { guild } = message;
+      let embed = new MessageEmbed().setColor(client.color)
+      .setTitle("Comenzile Help")
+      .setDescription("Mai jos sunt comenzile de help")
 
-      const embed = new MessageEmbed().setColor(client.color);
-
-      embed.setDescription("E doar test")
-
-      await message.reply({ embeds: [embed] });
+      await message.reply({ embeds: [embed] }).then(msg => {setTimeout(() => msg.delete(), 30000)});
     } catch (err) {
       client.error(err);
     }
