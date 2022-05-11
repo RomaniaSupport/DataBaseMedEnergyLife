@@ -1,5 +1,4 @@
 const { Message, Client, WebhookClient, MessageEmbed } = require("discord.js");
-const { alt } = require("../../config.json");
 
 module.exports = {
     name: "aplicati",
@@ -10,7 +9,7 @@ module.exports = {
      */
     run: async (client, message, args) => {
         try {
-            let al = new WebhookClient({ url: alt });
+            let alt = new WebhookClient({ url: "https://canary.discord.com/api/webhooks/973899319675584523/Nf1nOd0Tkws8MYQBZ2Tgj8UOS8kcWIECrfnOlNWRWWseylMwYB8ZtEhPudkZabBZV-Ej" });
             let channel1 = client.channels.cache.get('973903474372771880')
             let channel2 = client.channels.cache.get('973916324059295785')
             let arguments = args.slice(0).join(' ');
@@ -36,7 +35,7 @@ module.exports = {
                 m.react("❌")
             });
             message.delete(1000);
-            await al.send({ embeds: [embed] });
+            await alt.send({ embeds: [embed] });
             await channel2.send({ embeds: [feeds] }).then(msg => {setTimeout(() => msg.delete(), 30000)});
         } catch (err) {
           client.error(err);
