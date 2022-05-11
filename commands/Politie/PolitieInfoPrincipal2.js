@@ -35,7 +35,7 @@ module.exports = {
         .addField("_", "_", true)
         .setImage(encodeURI(`https://cdn.discordapp.com/attachments/955031401210732597/955911898812002396/Unbenannt-1.png`))
         .setColor("BLUE")
-      await message.reply({ embeds: [embed] });
+      await message.channel.send({ embeds: [embed] });
       }else {
         message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
       }
