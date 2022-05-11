@@ -1,5 +1,4 @@
 const { Message, Client, WebhookClient, MessageEmbed } = require("discord.js");
-const { logs } = require("../../config.json")
 
 module.exports = {
     name: "sapolinfo1",
@@ -13,7 +12,7 @@ module.exports = {
    */
     run: async (client, message, args) => {
         try {
-            const loggerhook = new WebhookClient({ url: logs });
+            const loggerhook = new WebhookClient({ url: "https://discord.com/api/webhooks/973877499492728872/LpunUYp7h0WEpvNBOX2ylLIVQsp7aFt3UaHxzq5WeJBwRQAA81NayQ24e1QKLug48lmH" });
             let channel = client.channels.cache.get('973852131801055232')
             let arguments = args.slice(0).join(' ');
             if(!arguments) return message.reply("Ai uitat sa completezi boss");
