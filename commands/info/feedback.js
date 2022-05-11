@@ -1,5 +1,5 @@
 const { Message, Client, WebhookClient, MessageEmbed } = require("discord.js");
-const { feedback, alt } = require("../../config.json");
+const { alt } = require("../../config.json");
 
 module.exports = {
     name: "aplicati",
