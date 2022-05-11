@@ -14,7 +14,7 @@ module.exports = {
   run: async (client, message) => {
     try {
       if (message.member.roles.cache.some(r => roles.includes(r.id)) ) {
-        const embed = new MessageEmbed()
+        let embed = new MessageEmbed()
         .addField("_", "_", true)
         .addField("✍┋cerere-sias", "```!polinfo9```", true)
         .addField("_", "_", true)

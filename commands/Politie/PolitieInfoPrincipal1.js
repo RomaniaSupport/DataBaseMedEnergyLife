@@ -2,7 +2,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 const { roles } = require("../../config.json");
 
 module.exports = {
-  name: "polinfoprincipal",
+  name: "polinfoprincipal1",
   descrpition: "InfoPolitie",
   category: "staff",
 
@@ -14,7 +14,7 @@ module.exports = {
   run: async (client, message) => {
     try {
       if (message.member.roles.cache.some(r => roles.includes(r.id)) ) {
-        const embed = new MessageEmbed()
+        let embed = new MessageEmbed()
         .setTitle("Categorii Disponibile")
         .addField("_", "_", true)
         .addField("📆┋activitatea", "```!polinfo1```", true)
