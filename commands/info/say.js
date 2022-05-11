@@ -18,7 +18,9 @@ module.exports = {
             if(message.member.roles.cache.some(r => roles.includes(r.id)) ) {
                 await message.channel.send(arguments);
                 message.delete(1000);
-            } return message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)});
+            }else {
+                message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
+            }
             
         } catch (err) {
           client.error(err);
