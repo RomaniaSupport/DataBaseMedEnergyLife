@@ -1,4 +1,4 @@
-const { Message, Client, MessageEmbed, ClientUser } = require("discord.js");
+const { Message, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "sapolinfo1",
@@ -28,7 +28,8 @@ module.exports = {
             await channel.send({ embeds: [embed] }).then(m => {
                 m.react("✅")
                 m.react("❌")
-              });
+            });
+            message.delete(1000);
         } catch (err) {
           client.error(err);
         }
