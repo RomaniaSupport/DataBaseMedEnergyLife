@@ -16,12 +16,10 @@ module.exports = {
             let arguments = args.slice(0).join(' ');
             if(!arguments) return message.reply("Ai uitat sa completezi boss");
             if(message.member.roles.cache.some(r => roles.includes(r.id)) ) {
-
-            }else {
-              message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
-            }
-            await message.channel.send(arguments);
-            message.delete(1000);
+                await message.channel.send(arguments);
+                message.delete(1000);
+            } return message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)});
+            
         } catch (err) {
           client.error(err);
         }
