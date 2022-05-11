@@ -12,7 +12,7 @@ module.exports = {
    */
     run: async (client, message, args) => {
         try {
-            let channel = client.channels.cache.get('973822636469653574')
+            let channel = client.channels.cache.get('973852131801055232')
             let arguments = args.slice(0).join(' ');
             if(!arguments) return message.reply("Ai uitat sa completezi boss");
                 
