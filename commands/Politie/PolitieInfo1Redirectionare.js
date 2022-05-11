@@ -18,7 +18,7 @@ module.exports = {
                 
             if(!channel) return message.reply("Aceasta camera a fost stearsa te rugam contacteaza un admin!");
             let embed = new MessageEmbed()
-            .setTitle(message.author.tag)
+            .setTitle("SUSPENDARE PERMIS " + message.author.tag)
             .addField("De La Angajatul :", `<@${message.author.id}> `)
             .setThumbnail(message.author.avatarURL())
             .setColor("#0000ff")
