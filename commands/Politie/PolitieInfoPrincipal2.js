@@ -35,7 +35,6 @@ module.exports = {
         .addField("_", "_", true)
         .setImage(encodeURI(`https://cdn.discordapp.com/attachments/955031401210732597/955911898812002396/Unbenannt-1.png`))
         .setColor("BLUE")
-        .setFooter("Informatii: Pentru a adauga in Arhiva informatii , copiati una din comenziile de mai sus pentru a primi respectivul EXEMPLU !\n Dupa completarea acestuia trimiteti mesajul , DACA ati gresit la trimiterea acestuia va rugam sa dati cu X \n prin actiunea votarii cu X acesta va fi revizuit de catre un membru capabil de stergerea acestui document din arhiva")
       await message.reply({ embeds: [embed] });
       }else {
         message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
