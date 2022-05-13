@@ -20,5 +20,6 @@ simplydjs.btnrole(client, message, {
       }
     ],
   })
+  message.delete(1000);
 }
 }
