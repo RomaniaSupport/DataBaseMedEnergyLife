@@ -24,7 +24,9 @@ module.exports = async (client, message) => {
     }
     client.on("interactionCreate", async interaction =>{
       simplydjs.clickBtn(interaction, {})
+      simplydjs.suggestBtn(interaction)
     })
+    
   } catch (err) {
     client.error(err);
   }
