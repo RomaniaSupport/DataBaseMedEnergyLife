@@ -2,7 +2,7 @@ const { default: Discord, Client } = require("discord.js");
 require("colors");
 require("dotenv").config();
 const { readdirSync } = require("fs");
-const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "DIRECT_MESSAGES"], allowedMentions: { repliedUser: true } });
+const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"], allowedMentions: { repliedUser: true } });
 
 console.clear();
 console.log("-".repeat(36).yellow);
