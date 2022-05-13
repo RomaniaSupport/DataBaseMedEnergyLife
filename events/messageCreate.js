@@ -1,5 +1,5 @@
 const { Client, Message } = require("discord.js");
-
+const simplydjs = require("simply-djs");
 /**
  *
  * @param {Client} client
@@ -22,6 +22,22 @@ module.exports = async (client, message) => {
         await cmds[key].run(client, message, args);
       }
     }
+    client.on("interactionCreate", async interaction =>{
+      simplydjs.clickBtn(interaction, {
+        embedDesc: 'Default embed tati',
+        embedColor: '#075FFF', // default: #075FFF
+        closeColor: 'blurple', //default: blurple
+        closeEmoji: '🍌', // default: 
+        
+        delColor: 'grey', // default: grey
+        delEmoji: '🍌', // default: ❌
+        openColor: 'green' , // default: green
+        openEmoji: '🍌', // default: 🔓
+        timeout: true, // default: true | Needs to be boolean (true/false)
+      
+        cooldownMsg: 'Ho in pula mea ai draci pe tine',
+        })
+    })
   } catch (err) {
     client.error(err);
   }
