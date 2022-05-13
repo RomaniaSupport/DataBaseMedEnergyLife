@@ -8,7 +8,6 @@ module.exports = {
    *
    * @param {Client} client
    * @param {Message} message
-   * @param {String[]} args
    */
   run: async (client, message) => {
     try {
