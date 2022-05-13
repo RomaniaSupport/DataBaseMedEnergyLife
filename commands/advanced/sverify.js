@@ -15,8 +15,8 @@ simplydjs.btnrole(client, message, {
       {
         role: '974549649727815760',
         label: 'babana',
-         color: 'SUCCESS',
-         emoji: '🍌'
+        color: 'SUCCESS',
+        emoji: '🍌'
       }
     ],
   })
