@@ -42,8 +42,8 @@ module.exports = {
                  topic: `Cerere facuta de: ${message.author.id}`,
                  permissionOverwrites: [
                     {
-                      id: message.author.id,
-                      allow: [Permissions.FLAGS.VIEW_CHANNEL],
+                        id: message.author.id,
+                        allow: [Permissions.FLAGS.VIEW_CHANNEL],
                     },
                     {
                         id: message.guild.id,
