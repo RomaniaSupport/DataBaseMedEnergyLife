@@ -23,20 +23,7 @@ module.exports = async (client, message) => {
       }
     }
     client.on("interactionCreate", async interaction =>{
-      simplydjs.clickBtn(interaction, {
-        embedDesc: 'Default embed tati',
-        embedColor: '#075FFF', // default: #075FFF
-        closeColor: 'blurple', //default: blurple
-        closeEmoji: '🍌', // default: 
-        
-        delColor: 'grey', // default: grey
-        delEmoji: '🍌', // default: ❌
-        openColor: 'green' , // default: green
-        openEmoji: '🍌', // default: 🔓
-        timeout: true, // default: true | Needs to be boolean (true/false)
-      
-        cooldownMsg: 'Ho in pula mea ai draci pe tine',
-        })
+      simplydjs.clickBtn(interaction, {})
     })
   } catch (err) {
     client.error(err);
