@@ -11,7 +11,8 @@ module.exports = {
    */
   run: async (client, message) => {
     try {
-      let embed = new MessageEmbed().setColor(client.color)
+      let embed = new MessageEmbed()//embed-ul pentru comanda de help
+      .setColor(client.color)
       .setTitle("Comenzile Help")
       .setDescription("Mai jos sunt comenzile de help")
 

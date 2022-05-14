@@ -12,8 +12,8 @@ module.exports = {
    */
   run: async (client, message) => {
     try {
-      if(message.member.roles.cache.some(r => r.id === "973815019227725864")) {
-        let embed = new MessageEmbed()
+      if(message.member.roles.cache.some(r => r.id === "973815019227725864")) { // rolul care poare folosi comanda
+        let embed = new MessageEmbed() // mai jos e embedul
         .setTitle("Categorii Disponibile")
         .addField("📆┋activitatea", "```!polinfo1```", false)
         .addField("📆┋cerere-concediu", "```!polinfo2```", false)
@@ -33,7 +33,7 @@ module.exports = {
       await message.channel.send({ embeds: [embed] });
       message.delete(1000);
       }else {
-        message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)})
+        message.reply(`Nu ai rolul bengos`).then(msg => {setTimeout(() => msg.delete(), 30000)}) // mesajul trimis in caz ca foloseste comanda si nu are rolul
       }
     } catch (err) {
       client.error(err);
