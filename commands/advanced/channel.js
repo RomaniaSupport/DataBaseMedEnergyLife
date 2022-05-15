@@ -34,44 +34,48 @@ module.exports = {
         let arguments = args.slice(0).join(' ');
         if(!arguments) return message.reply("Ai uitat sa iti pui id-ul");
         //ai uitat sa completezi comanda
-        const channelName = `${arguments} `+`${message.author.username}-` //numele la canal
-        if (message.guild.channels.cache.find(channel => channel.name === `${arguments} `+`${message.author.username}-`+`${message.author.username.toLowerCase()}-`)) return message.reply("Ai deja un ticket deschis.");
+        const channelName = arguments +`-${message.author.username}` //numele la canal
+        if (message.guild.channels.cache.find(channel => channel.name === arguments +`-${message.author.username.toLowerCase()}`)) return message.reply("Ai deja un ticket deschis.");
         // daca un canal cu numele asta exista deja nu mai creeaza altul
-        try {
-            let embed = new MessageEmbed() //embed-ul pe care il trimite pe canalul creeat
-            .setColor("RED")
-            .addField("Dosarul Angajatului :", `<@${message.author.id}> \n Model de Raport Medical : \n ↘️ \n Numarul Raportului Medical \n Locatia Preluarii Pacientului \n Ora Preluarii Pacientului \n Diagnosticul Constatat \n Procedurile Medicale aplicate pe Pacient \n Card de sanatate Pacient [d/n] \n Costuri Suplimentare [d/n] \n Ora si Locatia Plecarii Pacientului .`)
-            .addField(`Angajatul cu CNP-ul : `, arguments)
-            .setTimestamp()
-
-            .setImage(encodeURI(`https://cdn.discordapp.com/attachments/852551885361774642/856307237882822656/Screenshot_5.png`))
-            message.guild.channels.create(channelName, {
-                 parent: categories.id,
-                 type: 'GUILD_TEXT',
-                 topic: `Cerere facuta de: ${message.author.id}`,
-                 permissionOverwrites: [
-                    {
-                        id: message.author.id, //permisiuni pentru persoana cara face canalul, mai jos
-                        allow: [Permissions.FLAGS.VIEW_CHANNEL],
-                    },
-                    {
-                        id: message.guild.id, //permisiuni pentru @everyone mai jos
-                        deny: [Permissions.FLAGS.VIEW_CHANNEL],
-                    },
-                    {
-                        id: test, //perms pentru rolul de testers
-                        allow: [Permissions.FLAGS.VIEW_CHANNEL],
-                    },
-                    {
-                        id: staff, //perms pentru rolul de staff
-                        allow: [Permissions.FLAGS.VIEW_CHANNEL],
-                    },
-                    
-                 ],
-                }).then(c => {
-                c.send({ embeds: [embed] })
-            })} catch (err) {
-            client.error(err);
-          }
+        if(message.channel.id === '975508143209607179') {
+            try {
+                let embed = new MessageEmbed() //embed-ul pe care il trimite pe canalul creeat
+                .setColor("RED")
+                .addField("Dosarul Angajatului :", `<@${message.author.id}> \n Model de Raport Medical : \n ↘️ \n Numarul Raportului Medical \n Locatia Preluarii Pacientului \n Ora Preluarii Pacientului \n Diagnosticul Constatat \n Procedurile Medicale aplicate pe Pacient \n Card de sanatate Pacient [d/n] \n Costuri Suplimentare [d/n] \n Ora si Locatia Plecarii Pacientului .`)
+                .addField(`Angajatul cu CNP-ul : `, arguments)
+                .setTimestamp()
+    
+                .setImage(encodeURI(`https://cdn.discordapp.com/attachments/852551885361774642/856307237882822656/Screenshot_5.png`))
+                message.guild.channels.create(channelName, {
+                     parent: categories.id,
+                     type: 'GUILD_TEXT',
+                     topic: `Cerere facuta de: ${message.author.id}`,
+                     permissionOverwrites: [
+                        {
+                            id: message.author.id, //permisiuni pentru persoana cara face canalul, mai jos
+                            allow: [Permissions.FLAGS.VIEW_CHANNEL],
+                        },
+                        {
+                            id: message.guild.id, //permisiuni pentru @everyone mai jos
+                            deny: [Permissions.FLAGS.VIEW_CHANNEL],
+                        },
+                        {
+                            id: test, //perms pentru rolul de testers
+                            allow: [Permissions.FLAGS.VIEW_CHANNEL],
+                        },
+                        {
+                            id: staff, //perms pentru rolul de staff
+                            allow: [Permissions.FLAGS.VIEW_CHANNEL],
+                        },
+                        
+                     ],
+                    }).then(c => {
+                    c.send({ embeds: [embed] })
+                    message.reply(`<#${c.id}>`)
+                })} catch (err) {
+                client.error(err);
+              }
+          }else message.reply('Ai gresit canalu handicapatule');
+        
     },
   };
