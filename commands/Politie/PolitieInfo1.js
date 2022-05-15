@@ -18,7 +18,7 @@ module.exports = {
       .setImage(encodeURI(`https://cdn.discordapp.com/attachments/955882211117269052/956984702726717530/Unbenannt-1activitate.png`))
       .setColor("BLUE")
 
-      await message.reply({ embeds: [embed] }).then(msg => {setTimeout(() => msg.delete(), 5000)});
+      await message.channel.send({ embeds: [embed] }).then(msg => {setTimeout(() => msg.delete(), 5000)}); //message.reply => message.channel.send
       message.delete(1000);
     } catch (err) {
       client.error(err);
