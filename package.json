@@ -1,7 +1,7 @@
 {
   "name": "medmed",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pentru descarcare, instalare si folosire este necesar folosirea comenzilor\r 1. `npm i` in terminal \r 2. redenumirea fisierulului `dotenv` in `.env` + adaugarea unui token\r 3. node index.js pentru a porni botul",
   "main": "index.js",
   "author": "valentin24",
   "license": "ISC",
@@ -10,5 +10,20 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.1",
     "simply-djs": "^2.5.2"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomaniaSupport/DataBaseMedEnergyLife.git"
+  },
+  "keywords": [
+    "ro"
+  ],
+  "bugs": {
+    "url": "https://github.com/RomaniaSupport/DataBaseMedEnergyLife/issues"
+  },
+  "homepage": "https://github.com/RomaniaSupport/DataBaseMedEnergyLife#readme"
 }
