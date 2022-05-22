@@ -15,6 +15,7 @@ module.exports = {
             //primul canal unde trimite
             let channel2 = client.channels.cache.get('973916324059295785')
             //al doilea canal unde trimite
+            let channel3 = client.channels.cache.get('977849591888216094')
             let arguments = args.slice(0).join(' ');
             var embed = new MessageEmbed() // mai jos embed-ul
             .setTitle(message.author.tag)
@@ -33,6 +34,7 @@ module.exports = {
             // in caz ca a uitat sa completeze
             if(!channel1) return message.reply("Aceasta camera a fost stearsa te rugam contacteaza un admin!").then(msg => {setTimeout(() => msg.delete(), 60000)});
             if(!channel2) return message.reply("Aceasta camera a fost stearsa te rugam contacteaza un admin!").then(msg => {setTimeout(() => msg.delete(), 60000)});
+            if(!channel3) return message.reply("Aceasta camera a fost stearsa te rugam contacteaza un admin!").then(msg => {setTimeout(() => msg.delete(), 60000)});
             // in caz ca una din camere lipseste da reply cu mesajul de mai sus [channel1, channel2]
 
             await channel1.send({ embeds: [embed] }).then(m => { // reactiile la mesajul de pe channel1
@@ -42,6 +44,7 @@ module.exports = {
             message.delete(1000);
             await alt.send({ embeds: [embed] });
             await channel2.send({ embeds: [feeds] }).then(msg => {setTimeout(() => msg.delete(), 30000)});
+            await channel3.send({ embeds: [embed] })
         } catch (err) {
           client.error(err);
         }
