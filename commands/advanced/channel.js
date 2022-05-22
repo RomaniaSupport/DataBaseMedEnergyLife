@@ -17,16 +17,16 @@ module.exports = {
         //embed-ul pentru eroare de rol disparut (prin webhook)
         const category_hook = new MessageEmbed().setColor(color).setTitle("Categorie disparuta!!!").setDescription("Categoria pentru comanda !create nu mai exista. Ce se intampal??");
         //embed-ul pentru eroarea de categorie disparuta (prin webhook)
-        let categories = message.guild.channels.cache.find(category => category.id === categorie);
+        let categories = message.guild.channels.cache.get(categorie);
         if (!categories) return hook.send({ embeds: [category_hook] }), message.reply("Te rog da tag la un admin! Categoria nu mai exista.");
         //daca catergoria nu exista reply pentru user
-        let creator = message.guild.roles.cache.some(role => role.id === can_create)
+        let creator = (message.guild.roles.cache.get(can_create))
         if (!creator) return hook.send({ embeds: [creator_hook] }), message.reply("Eroare interna");
         //daca unul din roluri nu exista reply pentru user
-        let test = message.guild.roles.cache.find(role => role.id === testers)
+        let test = message.guild.roles.cache.get(testers)
         if (!test) return hook.send({ embeds: [creator_hook] }), message.reply("Eroare interna");
         //daca unul din roluri nu exista reply pentru user
-        let staff = message.guild.roles.cache.find(role => role.id === coleader)
+        let staff = message.guild.roles.cache.get(coleader)
         if (!staff) return hook.send({ embeds: [creator_hook] }), message.reply("Eroare interna");
         //daca unul din roluri nu exista reply pentru user
         if (!message.member.roles.cache.some(role => role.id === can_create)) return message.reply("Nu poti folosi comanda pentru ca nu ai rolul necesar!");
@@ -76,7 +76,13 @@ module.exports = {
                     }).then(c => {
                     c.send({ embeds: [embed] })
                     message.reply(`<#${c.id}>`)
-                })} catch (err) {
+                    creator.members.forEach((member) => { // Looping sa vada cine a rolu
+                        setTimeout(() => {
+                            member.roles.remove(creator); // scoate rolu
+                        });
+                    });
+                })
+            } catch (err) {
                 client.error(err);
               }
           }else message.reply('Ai gresit canalu handicapatule');
