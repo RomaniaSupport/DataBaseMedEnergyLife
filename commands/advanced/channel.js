@@ -89,8 +89,10 @@ module.exports = {
                         
                      ],
                     }).then(c => {
-                    c.send({ embeds: [embed] })
-                    message.channel.send(`<#${c.id}>`)
+                    c.send({ embeds: [embed] });
+                    message.channel.send(`<#${c.id}>`).then(msg => { 
+                        setTimeout(() => msg.delete(), 10000)
+                    });
                     creator.members.forEach((member) => { // Looping sa vada cine a rolu
                         setTimeout(() => {
                             member.roles.remove(creator); // scoate rolu
