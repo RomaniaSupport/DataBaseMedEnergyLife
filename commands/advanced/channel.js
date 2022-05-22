@@ -37,15 +37,19 @@ module.exports = {
         const channelName = arguments +`-${message.author.username}` //numele la canal
         if (message.guild.channels.cache.find(channel => channel.name === arguments +`-${message.author.username.toLowerCase()}`)) return message.reply("Ai deja un ticket deschis.");
         // daca un canal cu numele asta exista deja nu mai creeaza altul
-        if(message.channel.id === '975508143209607179') {
+        if(message.channel.id === '973633784404643842') {
             try {
                 let embed = new MessageEmbed() //embed-ul pe care il trimite pe canalul creeat
-                .setColor("RED")
-                .addField("Dosarul Angajatului :", `<@${message.author.id}> \n Model de Raport Medical : \n ↘️ \n Numarul Raportului Medical \n Locatia Preluarii Pacientului \n Ora Preluarii Pacientului \n Diagnosticul Constatat \n Procedurile Medicale aplicate pe Pacient \n Card de sanatate Pacient [d/n] \n Costuri Suplimentare [d/n] \n Ora si Locatia Plecarii Pacientului .`)
-                .addField(`Angajatul cu CNP-ul : `, arguments)
-                .setTimestamp()
-    
-                .setImage(encodeURI(`https://cdn.discordapp.com/attachments/852551885361774642/856307237882822656/Screenshot_5.png`))
+                    .setColor('#ff0000')
+                    .setTitle(`Canalul membrului STAFF - ${message.author.tag}`)
+                    .setThumbnail(`https://cdn.discordapp.com/attachments/955545048827711578/976945819460706354/unknown.png`)
+                    .setDescription(`${message.author.tag} (${arguments}), bun venit in canalul tau, destinat pentru: **activitate**, **intrebari**, **probleme**, **inactivitati**, cat si pentru **demisie**.\n\n**[!]** Dezvaluirea mesajelor din aceasta camera este strict **INTERZISA**, se se sanctioneaza drastic!`)
+                    .addFields(
+                        { name: '` 1 ` Activitate', value: 'ㅤ- camera aceasta este pentru contorizarea activitatii, inainte de fiecare sedinta trebuie sa puneti o poza cu activitatea din joc (/orejucate);\nㅤ- de preferat sa postati poza inainte de sedinta pentru a putea fi contorizata;' },
+                        { name: '` 2 ` Inactivitate', value: 'ㅤ- daca nu puteti intra pe o durata de `24h` pe server, va rugam sa postati o cerere de inactivitate pentru a evita sanctionarea dvs.;\nㅤ- postarea inactivitatii se va face cu urmatorul model:\nㅤㅤ`Nume:` \nㅤㅤ`Gradul pe care-l detii:` \nㅤㅤ`Numarul zilelor de inactivitate:` \nㅤㅤ`Data inceperii(ZZ/LL/AA):` \nㅤㅤ`Data revenirii(ZZ/LL//AA):` \nㅤㅤ`Motivul:` \nㅤㅤ`Alte precizari:` ' },
+                        { name: '` 3 ` Demisie', value: 'ㅤ- postarea demisiei se va face cu urmatorul model:\nㅤㅤ`Nume:` \nㅤㅤ`Gradul pe care-l detii:` \nㅤㅤ`Data ultimei promovari:` \nㅤㅤ`Perioada de activitate:` \nㅤㅤ`Motivul demisiei:` \nㅤㅤ`Alte precizari:` '},
+                    )
+                    .setTimestamp()
                 message.guild.channels.create(channelName, {
                      parent: categories.id,
                      type: 'GUILD_TEXT',
@@ -53,7 +57,7 @@ module.exports = {
                      permissionOverwrites: [
                         {
                             id: message.author.id, //permisiuni pentru persoana cara face canalul, mai jos
-                            allow: [Permissions.FLAGS.VIEW_CHANNEL],
+                            allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES],
                         },
                         {
                             id: message.guild.id, //permisiuni pentru @everyone mai jos
