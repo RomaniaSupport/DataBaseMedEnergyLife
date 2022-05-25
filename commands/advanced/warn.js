@@ -46,12 +46,14 @@ module.exports = {
             if(!member.roles.cache.has(warn1)) {
                 member.roles.add(warn1);
                 message.reply({embeds: [warn1Embed]});
-            } else if(!member.roles.cache.has(warn2)) {
-                member.roles.add(warn2);
-                message.reply({embeds: [warn2Embed]});
-            } else if(member.roles.cache.has(warn1) && member.roles.cache.has(warn2)) {
-                member.removeRoles(member.roles);
-                message.reply({embeds: [warn3Embed]});
+            } else {
+                if(member.roles.cache.has(warn2)) {
+                    member.removeRoles(member.roles);
+                    message.reply({embeds: [warn3Embed]});
+                }else {
+                    member.roles.add(warn2);
+                    message.reply({embeds: [warn2Embed]});
+                }
             }
         } catch (err) {
             client.error(err);
